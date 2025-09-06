@@ -58,6 +58,7 @@ class WebSearcher:
             raise Exception("All search engines failed")
     
     def _search_serpapi(self, query: str, num_results: int) -> List[Dict]:
+        print(f"DEBUG: Trying to use SerpAPI key: {self.config.SERPAPI_KEY}")
         """Search using SerpAPI Google Search"""
         try:
             from serpapi import GoogleSearch

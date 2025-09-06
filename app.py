@@ -1,5 +1,6 @@
 # AI Research Agent - Main Flask Application
 from flask import Flask, render_template, request, jsonify, send_file
+from dotenv import load_dotenv
 import os
 from datetime import datetime
 import json
@@ -11,7 +12,7 @@ from citation import CitationManager
 from export import ReportExporter
 from utils import validate_topic, clean_text
 import logging
-
+load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
