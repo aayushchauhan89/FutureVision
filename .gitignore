@@ -1,0 +1,12 @@
+# Virtual Environment
+venv/
+
+# Environment variables
+.env
+
+# Cache and Exports
+cache/
+exports/
+
+# Python cache
+__pycache__/
