@@ -47,7 +47,7 @@ def search_topic():
         
         # Step 1: Web Search
         logger.info(f"Searching for topic: {topic}")
-        search_results = searcher.search(topic, num_results=10)
+        search_results = searcher.search(topic, num_results=3)
         
         if not search_results:
             return jsonify({'error': 'No search results found'}), 404
