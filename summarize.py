@@ -15,25 +15,25 @@ class TextSummarizer:
         self.summary_methods = ['transformers', 'openai', 'anthropic']
         
     def summarize_content(self, extracted_content: List[Dict], topic: str) -> Dict:
-    """
-    Summarize extracted content for a given research topic
-    (Modified to use only the lightweight rule-based method for Render's free tier)
-    """
-    try:
-        logger.info(f"Summarizing content for topic: {topic} using lightweight rule-based method.")
-        
-        combined_text = self._prepare_content(extracted_content)
-        
-        if not combined_text:
+        """
+        Summarize extracted content for a given research topic
+        (Modified to use only the lightweight rule-based method for Render's free tier)
+        """
+        try:
+            logger.info(f"Summarizing content for topic: {topic} using lightweight rule-based method.")
+            
+            combined_text = self._prepare_content(extracted_content)
+            
+            if not combined_text:
+                return self._create_empty_summary(topic)
+            
+            # Directly call the rule-based summary as the only option
+            summary = self._summarize_with_rules(combined_text, topic, extracted_content)
+            return summary
+            
+        except Exception as e:
+            logger.error(f"Summarization failed: {str(e)}")
             return self._create_empty_summary(topic)
-        
-        # Directly call the rule-based summary as the only option
-        summary = self._summarize_with_rules(combined_text, topic, extracted_content)
-        return summary
-        
-    except Exception as e:
-        logger.error(f"Summarization failed: {str(e)}")
-        return self._create_empty_summary(topic)
     
     def _prepare_content(self, extracted_content: List[Dict]) -> str:
         """Prepare and combine content for summarization"""
