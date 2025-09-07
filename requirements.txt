@@ -26,7 +26,7 @@ tokenizers
 
 # Text Processing
 nltk==3.8.1
-spacy==3.7.1
+spacy
 textstat==0.7.3
 
 # PDF and Document Processing
