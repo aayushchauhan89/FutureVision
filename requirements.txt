@@ -31,7 +31,7 @@ textstat==0.7.3
 
 # PDF and Document Processing
 PyPDF2==3.0.1
-pymupdf==1.23.8  # fitz
+pymupdf
 reportlab==4.0.4
 markdown==3.5.1
 python-docx==0.8.11
